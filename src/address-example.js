@@ -5,19 +5,23 @@ import AddressBlock from './address-block'
 class AddressExample extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      address: {}
+    }
     this.updateAddressBlock = this.updateAddressBlock.bind(this)
   }
 
-  updateAddressBlock(event) {
-    event.preventDefault()
-    alert('called here')
+  updateAddressBlock(key, value) {
+    let address = this.state.address
+    address[key] = value
+    this.setState(address: address)
   }
 
   render() {
     return (
       <div>
-        <AddressForm onSubmit={this.updateAddressBlock}/>
-        <AddressBlock name={ 'Jon Snow'} state={'TN'} street={'Winterfell'} city={'Wallerton'} postalCode={'02342'}/>
+        <AddressForm onInputChange={this.updateAddressBlock}/>
+        <AddressBlock {...this.state.address } />
       </div>
     )
   }

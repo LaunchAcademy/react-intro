@@ -5,7 +5,7 @@ let AddressBlock = (props) => {
     <div>
       {props.name}<br />
       {props.street}<br />
-      {props.city}, {props.state}, {props.postalCode}
+      {props.city}, {props.state}, {props.postal_code}
     </div>
   )
 }
